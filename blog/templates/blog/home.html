@@ -1,0 +1,27 @@
+{% extends "blog/base.html"%} {% block content%} {% for post in posts%}
+<article class="blog-content mb-4 pb-4 border-bottom" role="article">
+    <img
+        src="{{ post.author.profile.image.url }}"
+        alt="author"
+        class="rounded-circle blog-content__img"
+    />
+    <div class="blog-content__body">
+        <h1>
+            <a href="{% url 'post-detail' post.id  %}" class="blog-content__title text-primary">{{ post.title }}</a>
+        </h1>
+        <p class="blog-content__content">{{ post.content }}</p>
+
+        <div class="blog-content__metadata pt-1">
+            <p>
+                Author:
+                <a class="mr-2 text-info" href="{% url 'profile' %}"> {{ post.author }}</a>
+            </p>
+
+            {% comment %} Django Date format for Europe {% endcomment %}
+            <small class="text-muted"
+                >Posted: {{ post.created_at | date:"d.m.Y" }}</small
+            >
+        </div>
+    </div>
+</article>
+{% endfor%} {% endblock content%}
