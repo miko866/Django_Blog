@@ -5,7 +5,7 @@
 {% block title %}Delete Post{% endblock %}
 
 {% block content%}
-  <div class="content-section text-center">
+  <div class="content-section text-center" role="delete">
     <form method="POST">
       {% csrf_token %}
       <!-- Delete Title -->

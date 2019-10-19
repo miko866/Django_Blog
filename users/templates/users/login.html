@@ -1,28 +1,40 @@
-{% extends "blog/base.html"%} {% load crispy_forms_tags %} {% block content%}
+<!-- Login -->
+{% extends "blog/base.html"%} 
 
-<div class="row pt-3 pb-5">
-	<div class="col-8 mx-auto">
-    <div class="content-section" role="login">
+<!-- Title only for this site -->
+{% block title %}Login{% endblock %}
+
+<!-- Django Crispy Forms -->
+{% load crispy_forms_tags %} 
+
+{% block content%}
+  <section class="row pt-3 pb-5" role="login">
+    <div class="col-8 mx-auto">
+      <div class="content-section">
+        <!-- START FORM -->
         <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <h2 class="border-bottom mb-4 pb-2">Log In</h2>
-                {{ form | crispy }}
-            </fieldset>
+          {% csrf_token %}
+          <fieldset class="form-group">
+            <!-- Title Login -->
+            <h1 class="border-bottom mb-4 pb-2 text-center">Log In</h1>
+            <!-- Content Form Login -->
+            {{ form | crispy }}
+          </fieldset>
 
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Login</button>
-            </div>
+          <div class="form-group">
+              <button class="btn btn-outline-info" type="submit">Login</button>
+          </div>
         </form>
+        <!-- END FORM -->
 
+        <!-- START Sing Up-->
         <div class="border-top pt-3">
-            <small class="text-muted"
-                >Need an Account?
-                <a href="{% url 'register' %}" class="ml-2">Sing Up Now</a>
-            </small>
+          <small class="text-muted">Need an Account?
+            <a href="{% url 'register' %}" class="ml-2">Sing Up Now</a>
+          </small>
         </div>
+        <!-- END Sing Up -->
+      </div>
     </div>
-  </div>
-</div>
-
+  </section>
 {% endblock content%}

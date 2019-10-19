@@ -4,40 +4,52 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 
 
+# Register Page
 def register(request):
+    # Check POST
     if request.method == 'POST':
+        # Django register form
         form = UserRegisterForm(request.POST)
+        # Check if is valid
         if form.is_valid():
-            form.save()  # automate hash password
+            # Hash password
+            form.save()
+            # Take username and Sanitize then
             username = form.cleaned_data.get('username')
+            # Send message
             messages.success(
                 request, f'Your account has been created! You are now able to log in.')
             return redirect('login')
     else:
+        # If not valid show only form
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
 
 
-# Decorator add extend function from Django profiles
+# Only logged user can use that
 @login_required
+# Profile Page
 def profile(request):
+    # Check POST
     if request.method == 'POST':
-        # fill our form with the righht data from user
+        # Fill our form with the right data from user
         user_form = UserUpdateForm(request.POST, instance=request.user)
         profile_form = ProfileUpdateForm(
             request.POST, request.FILES,  instance=request.user.profile)
-        # Validation data from form i save it
+        # Validation data from Form and save then
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
+            # Send message
             messages.success(
                 request, f'Your account has been updated.')
             return redirect('profile')
     else:
-        # instance is for update our form
+        # Instance is for update our form
         user_form = UserUpdateForm(instance=request.user)
         profile_form = ProfileUpdateForm(instance=request.user.profile)
 
+    # That I send into page
     context = {
         'user_form': user_form,
         'profile_form': profile_form

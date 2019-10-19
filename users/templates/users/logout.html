@@ -1,10 +1,20 @@
-{% extends "blog/base.html"%} {% block content%}
-<h2>You have been logged out.</h2>
+<!-- Logout -->
+{% extends "blog/base.html"%} 
 
-<div class="border-top pt-3">
-    <small class="text-muted">
-        <a href="{% url 'login' %}">Log In</a>
-    </small>
-</div>
+<!-- Title only for this site -->
+{% block title %}Logout{% endblock %}
+
+{% block content%}
+  <aside role="logout">
+    <!-- Title Logout -->
+    <h1 class="text-center">You have been logged out.</h1>
+
+    <!-- Logg in -->
+    <div class="border-top pt-3">
+      <small class="text-muted">
+        <a href="{% url 'login' %}">Logg In</a>
+      </small>
+    </div>
+  </aside>
 
 {% endblock content%}

@@ -4,11 +4,12 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import Profile
 
 
+# Register Form for User
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
 
-    # nested namespace from config for UserModels i can change that
-    # inherits Usercreates froms
+    # Nested namespace from config for UserModels
+    # Inherits Usercreates Forms
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
@@ -21,11 +22,12 @@ class UserRegisterForm(UserCreationForm):
         self.fields['password2'].help_text = ''
 
 
+# Update Form for User
 class UserUpdateForm(forms.ModelForm):
     email = forms.EmailField()
 
-    # nested namespace from config for UserModels i can change that
-    # inherits Usercreates froms
+    # Nested namespace from config for UserModels
+    # Inherits Usercreates Forms
     class Meta:
         model = User
         fields = ['username', 'email']
@@ -36,6 +38,7 @@ class UserUpdateForm(forms.ModelForm):
         self.fields['username'].help_text = ''
 
 
+# Update Form for Profile Image
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
