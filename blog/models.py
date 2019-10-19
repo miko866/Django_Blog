@@ -10,10 +10,10 @@ class Post(models.Model):
     created_at = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    # Change to String obj. for simple reading
+    # Change to String obj. for simple reading into Admin panel
     def __str__(self):
         return self.title
 
-    # return full URL als String from rout and make redirect bei created new post
+    # Return full URL als String from rout and make redirect bei created new post
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={'pk': self.pk})
