@@ -1,16 +1,26 @@
-{% extends "blog/base.html"%}  {% block content%}
-<div class="content-section">
-    <form method="POST">
-        {% csrf_token %}
-        <fieldset class="form-group">
-            <legend class="border-bottom mb-4">Delete Post</legend>
-            <h2>Are you sur for delete "{{ object.title }}"</h2>
-        </fieldset>
+<!-- Post Delete -->
+{% extends "blog/base.html"%}  
 
-        <div class="form-group">
-            <button class="btn btn-outline-danger" type="submit">Yes, delete</button>
-            <a class="btn btn-outline-info" href="{% url 'post-detail' object.id%}">Noooo</a>
-        </div>
+<!-- Title only for this site -->
+{% block title %}Delete Post{% endblock %}
+
+{% block content%}
+  <div class="content-section text-center">
+    <form method="POST">
+      {% csrf_token %}
+      <!-- Delete Title -->
+      <fieldset class="form-group">
+          <h1 class="border-bottom mb-4">Delete Post</h1>
+          <h2>Are you sur for delete "{{ object.title }}"</h2>
+      </fieldset>
+
+      <!-- Delete Buttons -->
+      <div class="form-group">
+        <!-- YES -->
+        <button class="btn btn-outline-danger" type="submit">Yes, delete</button>
+        <!-- NO -->
+        <a class="btn btn-outline-info" href="{% url 'post-detail' object.id%}">Noooo</a>
+      </div>
     </form>
-</div>
+  </div>
 {% endblock content%}

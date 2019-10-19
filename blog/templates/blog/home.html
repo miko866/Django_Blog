@@ -1,9 +1,13 @@
+<!-- Home Page -->
 {% extends "blog/base.html"%} 
+
+<!-- Title only for this site -->
+{% block title %}Home {% endblock %}
 
 {% block content%} 
   {% for post in posts%}
     <article class="blog-content mb-4 pb-4 border-bottom" role="article">
-      <!-- Author image -->
+      <!-- Author Image -->
       <img src="{{ post.author.profile.image.url }}" alt="author"  class="rounded-circle blog-content__img"/>
       
       <!-- START Post -->

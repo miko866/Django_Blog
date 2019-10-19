@@ -1,5 +1,5 @@
 from django.contrib import admin
 from .models import Post
 
-# Register admin Posts
+# Register Post models into Admin Panel
 admin.site.register(Post)

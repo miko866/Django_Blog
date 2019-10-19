@@ -65,6 +65,10 @@ body {
   text-rendering: optimizelegibility;
 }
 
+main {
+  height: 82%;
+}
+
 img {
   max-width: 100%;
   height: auto;
