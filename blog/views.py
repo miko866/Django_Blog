@@ -68,3 +68,7 @@ class PostDeleteView(LoginRequiredMixin,  UserPassesTestMixin, DeleteView):
 
 def contact(request):   # Contact page
     return render(request, 'blog/contact.html', {'title': 'Contact'})
+
+
+def impressum(request):   # Contact page
+    return render(request, 'blog/impressum.html', {'title': 'Impressum'})

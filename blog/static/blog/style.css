@@ -7,7 +7,7 @@
 //   outline: 3px solid black;
 // } */
 
-/* For Microsoft Devices - Resposive */
+/* For Microsoft Devices - Responsive */
 @-ms-viewport {
   width: device-width;
 }
@@ -180,4 +180,16 @@ input:after {
 
 .blog-content__metadata > p {
   display: inline-block;
+}
+
+/********************************************
+* USER Profile
+*********************************************/
+.profile-title {
+  text-align: center;
+}
+
+.profile-img {
+  border: 1px solid black;
+  max-width: 50%;
 }
