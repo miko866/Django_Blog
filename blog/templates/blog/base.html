@@ -40,6 +40,7 @@
             <!-- START Navbar -->
             <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top" role="navigation">
                 <div class="container">
+                    <!-- Navbar heading -->
                     <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Awesome Blog</a>
                     <!-- START Mobile Menu Button -->
                     <button
@@ -55,10 +56,13 @@
                     <!-- END Mobile Menu Button -->
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav d-flex w-100">
+                            <!-- START Navbar Left Side -->
                             <div class="navbar-nav mr-auto">
                                 <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
                                 <a class="nav-item nav-link" href="{% url 'blog-contact' %}">Contact</a>
                             </div>
+                            <!-- END Navbar Left Side -->
+                            
                             <!-- START Navbar Right Side -->
                             <div class="navbar-nav  justify-content-end">
                                 {% if user.is_authenticated  %}
