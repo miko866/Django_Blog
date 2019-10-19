@@ -65,8 +65,11 @@ body {
   text-rendering: optimizelegibility;
 }
 
-main {
-  height: 90%;
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 img {
@@ -196,4 +199,12 @@ input:after {
 .profile-img {
   border: 1px solid black;
   max-width: 50%;
+}
+
+/********************************************
+* IMPRESSUM Template
+*********************************************/
+.impressum-address {
+  display: flex;
+  justify-content: space-around;
 }
